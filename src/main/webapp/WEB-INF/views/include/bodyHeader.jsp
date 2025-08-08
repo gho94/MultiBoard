@@ -1,4 +1,4 @@
-<%@page import="com.example.myapp.board.service.BoardCategoryService"%>
+<%-- <%@page import="com.example.myapp.board.service.BoardCategoryService"%>
 <%@page import="java.util.List"%>
 <%@page import="com.example.myapp.board.model.BoardCategory"%>
 <%@page import="com.example.myapp.board.service.IBoardCategoryService"%>
@@ -89,4 +89,4 @@
     </div>
 	</header>
 </div>
-</div>
+</div> --%>
