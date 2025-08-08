@@ -1,4 +1,4 @@
-<%@ tag language="java" pageEncoding="UTF-8"%>
+<%@ tag language="java" pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
 <%@ tag body-content="empty" %>
 <%@ attribute name="replynum" type="java.lang.Integer" %>
 <%@ attribute name="replystep" type="java.lang.Integer" %>

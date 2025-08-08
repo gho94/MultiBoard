@@ -33,7 +33,7 @@
 					<div class="col-xs-9">
 						<input type="text" name="keyword" class="form-control">
 					</div>
-					<input type="submit" class="btn btn-warning" value="<fmt:message key="SERARCH"/>">
+					<input type="submit" class="btn btn-warning" value="<fmt:message key="SEARCH"/>">
 				</div>
 			</form>
 			<table class="table table-hover table-bordered">
@@ -66,7 +66,7 @@
 						<jk:paging nowPage="${page}" categoryId="${categoryId}" totalPageCount="${totalPageCount}"/>
 					</td>
 					<td align="right">
-						<a href='<c:url value="/board/write/%{categoryId}"/>'><button type="button" class="btn btn-info"><fmt:message key="WRITE_NEW_ARTICLE"/></button></a>
+						<a href='<c:url value="/board/write/${categoryId}"/>'><button type="button" class="btn btn-info"><fmt:message key="WRITE_NEW_ARTICLE"/></button></a>
 					</td>
 				</tr>
 			</table>

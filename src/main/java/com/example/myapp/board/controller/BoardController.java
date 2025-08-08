@@ -102,7 +102,11 @@ public class BoardController {
 			board.setTitle(Jsoup.clean(board.getContent(), Safelist.basic()));
 			
 			MultipartFile mfile = board.getFile();
-			if (mfile != null && mfile.isEmpty()) {
+			System.out.println(mfile);
+			System.out.println("mfile != null" + mfile != null);
+			System.out.println("!mfile.isEmpty()" + !mfile.isEmpty());
+			System.out.println(mfile != null && !mfile.isEmpty());
+			if (mfile != null && !mfile.isEmpty()) {
 				BoardUploadFile file = new BoardUploadFile();
 				file.setFileName(mfile.getOriginalFilename());
 				file.setFileSize(mfile.getSize());
@@ -165,9 +169,9 @@ public class BoardController {
 				file.setFileSize(mfile.getSize());
 				file.setFileContentType(mfile.getContentType());
 				file.setFileData(mfile.getBytes());
-				boardService.insertArticle(board, file);
+				boardService.replyArticle(board, file);
 			} else {
-				boardService.insertArticle(board);
+				boardService.replyArticle(board);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
