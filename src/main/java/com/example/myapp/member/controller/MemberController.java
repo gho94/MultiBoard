@@ -144,6 +144,9 @@ public class MemberController {
 				
 				session.invalidate();
 				return "member/login";
+			} else {
+				model.addAttribute("message", "WRONG_PASSWORD");
+				return "member/delete";
 			}
 		} catch (Exception e) {
 			model.addAttribute("message", "DELETE_FAIL");
