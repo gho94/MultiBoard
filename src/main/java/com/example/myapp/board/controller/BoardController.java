@@ -99,7 +99,8 @@ public class BoardController {
 		
 		try {
 			board.setContent(board.getContent().replace("\r\n", "<br>"));
-			board.setTitle(Jsoup.clean(board.getContent(), Safelist.basic()));
+			board.setTitle(Jsoup.clean(board.getTitle(), Safelist.basic()));
+			board.setContent(Jsoup.clean(board.getContent(), Safelist.basic()));
 			
 			MultipartFile mfile = board.getFile();
 			System.out.println(mfile);

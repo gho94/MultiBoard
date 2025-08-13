@@ -58,6 +58,11 @@ public class MemberController {
 		return "home";
 	}
 	
+	@RequestMapping(value="/member/login", method=RequestMethod.GET)
+	public String login() {
+		return "member/login";
+	}
+	
 	@RequestMapping(value="/member/login", method=RequestMethod.POST)
 	public String login(String userid, String password, HttpSession session, Model model) {
 		Member member = memberService.selectMember(userid);
@@ -106,7 +111,7 @@ public class MemberController {
 	public String updateMember(Member member, HttpSession session, Model model) {
 		try {
 			memberService.updateMember(member);
-			model.addAttribute("message", "UPDATE_MEMBER_INFO");
+			model.addAttribute("message", "UPDATED_MEMBER_INFO");
 			model.addAttribute("member", member);
 			session.setAttribute("email", member.getEmail());
 			return "member/login";
@@ -120,17 +125,19 @@ public class MemberController {
 	@RequestMapping(value="/member/delete", method=RequestMethod.GET)
 	public String deleteMember(HttpSession session, Model model) {
 		String userid = (String)session.getAttribute("userid");
-		if (userid != null && "".equals(userid)) {
+		if (userid != null && !"".equals(userid)) {
 			Member member = memberService.selectMember(userid);
 			model.addAttribute("member", member);
 			model.addAttribute("message", "MEMBER_PW_RE");
 			return "member/delete";
 		} else {
+			
 			model.addAttribute("message", "NOT_LOGIN_USER");
 			return "member/login";
 		}
 	}
-	
+
+	@RequestMapping(value="/member/delete", method=RequestMethod.POST)
 	public String deleteMember(String password, HttpSession session, Model model) {
 		try {
 			Member member = new Member();
